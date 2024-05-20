@@ -1,0 +1,35 @@
+@startuml
+interface Decorator.Telefono {
+~ void crear()
+}
+
+class Decorator.TelefonoBasico {
++ void crear()
+- void tengoGSM()
+- void tengoSMS()
+}
+
+class Decorator.TelefonoDecorator {
+- Telefono telefono
++ <<Create>> TelefonoDecorator(Telefono)
++ void crear()
+}
+
+
+class Decorator.TelefonoInteligente {
++ <<Create>> TelefonoInteligente(Telefono)
++ void crear()
+}
+
+class Decorator.TelefonoNextGen {
++ <<Create>> TelefonoNextGen(Telefono)
++ void crear()
+}
+
+
+
+Decorator.Telefono <|.. Decorator.TelefonoBasico
+Decorator.Telefono <|.. Decorator.TelefonoDecorator
+Decorator.TelefonoDecorator <|-- Decorator.TelefonoInteligente
+Decorator.TelefonoDecorator <|-- Decorator.TelefonoNextGen
+@enduml
